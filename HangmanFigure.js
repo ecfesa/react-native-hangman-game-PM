@@ -2,15 +2,18 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Svg, { Text } from "react-native-svg";
 
+/*
 const HangmanFigureASCII = [
   [
-    "+---+",
-    "|   |",
-    "    |",
-    "    |",
-    "    |",
-    "    |",
-    "=========",
+    `
+    ▛▔▔▔▜
+    ▏      ▐
+            ▐
+            ▐
+            ▐
+            ▐
+    =========
+    `
   ],
   [
     "+---+",
@@ -67,30 +70,95 @@ const HangmanFigureASCII = [
     "=========",
   ],
 ];
+*/
+
+const HangmanFigureASCII = [
+  `
+    ▛▔▔▔▜
+    ▏      ▐
+            ▐
+            ▐
+            ▐
+            ▐
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|   |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|\\  |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|\\  |
+   /    |
+        |
+    =========
+  `,
+  `
+    -----
+    |   ||
+    O   ||
+   /|\\  ||
+   / \\  ||
+        ||
+    =========
+  `,
+];
 
 const HangmanFigure = ({ errors }) => {
-  const asciiArt = HangmanFigureASCII[errors];
+  const asciiArt = HangmanFigureASCII[0][errors];
 
   return (
     <View style={styles.container}>
-      <Svg width="50%" height="100%">
-        {asciiArt.map((line, index) => (
-          <Text
-            key={index}
-            x="50%"
-            y={20 + index * 20}
-            fontSize="20"
-            fill="black"
-            fontFamily="monospace"
-            textAnchor="middle"
-          >
-            {line}
+          <Text style={styles.asciiText}>
+            {HangmanFigureASCII[0]}
+            {console.log(HangmanFigureASCII[errors])}
           </Text>
-        ))}
-      </Svg>
     </View>
   );
 };
+
+/*
+key={errors}
+            x="50%"
+            y={20 + errors * 20}
+            fontSize="20"
+            fill="black"
+            fontFamily="monospace"
+*/
 
 const styles = StyleSheet.create({
   container: {
@@ -102,6 +170,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 90
   },
+  asciiText: {
+    fontFamily: "monospace",
+    fontSize: 14,
+    color: "black",
+    textAlign: "left",
+    lineHeight: 18,
+  }
 });
 
 export default HangmanFigure;
