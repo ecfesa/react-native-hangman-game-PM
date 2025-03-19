@@ -1,85 +1,15 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import Svg, { Text } from "react-native-svg";
-
-/*
-const HangmanFigureASCII = [
-  [
-    `
-    ▛▔▔▔▜
-    ▏      ▐
-            ▐
-            ▐
-            ▐
-            ▐
-    =========
-    `
-  ],
-  [
-    "+---+",
-    "|   |",
-    "O   |",
-    "    |",
-    "    |",
-    "    |",
-    "=========",
-  ],
-  [
-    "+---+",
-    "|   |",
-    "O   |",
-    "|   |",
-    "    |",
-    "    |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|   |",
-    "     |",
-    "     |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|\\  |",
-    "     |",
-    "     |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|\\  |",
-    "/    |",
-    "     |",
-    "=========",
-  ],
-  [
-    " -----",
-    " |   ||",
-    " O   ||",
-    "/|\\  ||",
-    "/ \\  ||",
-    "     ||",
-    "=========",
-  ],
-];
-*/
+import { View, StyleSheet, Text } from "react-native";
+// o import do text estava vindo de "react-native-svg", por isso não estava apresentando
 
 const HangmanFigureASCII = [
   `
-    ▛▔▔▔▜
-    ▏      ▐
-            ▐
-            ▐
-            ▐
-            ▐
+    +---+
+    |   |
+        |
+        |
+        |
+        |
     =========
   `,
   `
@@ -139,26 +69,16 @@ const HangmanFigureASCII = [
 ];
 
 const HangmanFigure = ({ errors }) => {
-  const asciiArt = HangmanFigureASCII[0][errors];
+  const asciiArt = HangmanFigureASCII[errors];
 
   return (
     <View style={styles.container}>
-          <Text style={styles.asciiText}>
-            {HangmanFigureASCII[0]}
-            {console.log(HangmanFigureASCII[errors])}
-          </Text>
+      <Text style={styles.asciiText}>
+        {asciiArt}
+      </Text>
     </View>
   );
 };
-
-/*
-key={errors}
-            x="50%"
-            y={20 + errors * 20}
-            fontSize="20"
-            fill="black"
-            fontFamily="monospace"
-*/
 
 const styles = StyleSheet.create({
   container: {
@@ -172,7 +92,7 @@ const styles = StyleSheet.create({
   },
   asciiText: {
     fontFamily: "monospace",
-    fontSize: 14,
+    fontSize: 20,
     color: "black",
     textAlign: "left",
     lineHeight: 18,
