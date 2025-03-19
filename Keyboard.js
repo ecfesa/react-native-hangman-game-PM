@@ -37,15 +37,18 @@ const styles = StyleSheet.create({
     margin: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ddd',
-    borderRadius: 3,
+    backgroundColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: 'white'
   },
   disabledKey: {
     backgroundColor: '#999',
   },
   keyText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'monospace',
+    color : 'white'
   },
 });
 

@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     letterSpacing: 10,
     fontWeight: 'bold',
+    color : 'white'
   },
 });
 

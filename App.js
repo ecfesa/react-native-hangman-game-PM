@@ -1,6 +1,6 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import HangmanFigure from './HangmanFigure';
 import WordDisplay from './WordDisplay';
 import Keyboard from './Keyboard';
@@ -52,7 +52,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.hint}>Dica: {currentWord?.hint}</Text>
+      <Text style={[styles.hint, styles.dashedStyleText]}>Dica: {currentWord?.hint}</Text>
       
       <HangmanFigure errors={errors} />
       
@@ -75,26 +75,29 @@ export default function App() {
             />
           )}
           
-          <Button
-            title={
-              showAccentedKeyboard
-                ? "Voltar para Teclado Normal"
-                : "Usar Teclado com Acentos"
-            }
-            onPress={() => setShowAccentedKeyboard(!showAccentedKeyboard)}
-          />
+          <TouchableOpacity style={styles.dashedStyle} onPress={() => setShowAccentedKeyboard(!showAccentedKeyboard)}>
+          {
+            showAccentedKeyboard ? (
+                <Text style={styles.dashedStyleText}>Voltar para Teclado Normal</Text>
+            ) : (
+                <Text style={styles.dashedStyleText}>Usar Teclado com Acentos</Text>
+            )
+          }
+          </TouchableOpacity>
         </>
       )}
       
       {gameOver && (
         <View style={styles.gameOver}>
-          <Text style={styles.gameOverText}>
+          <Text style={[styles.gameOverText, styles.dashedStyleText]}>
             {errors >= 6 ? 'Você perdeu!' : 'Você ganhou!'}
           </Text>
-          <Text style={styles.correctWord}>
+          <Text style={[styles.correctWord, styles.dashedStyleText]}>
             Palavra correta: {currentWord?.word}
           </Text>
-          <Button title="Jogar novamente" onPress={startNewGame} />
+          <TouchableOpacity style={styles.dashedStyle}onPress={startNewGame}>
+            <Text style={styles.dashedStyleText}> Jogar Novamente </Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>
@@ -107,14 +110,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    backgroundColor : 'black'
   },
   hint: {
     fontSize: 18,
     marginBottom: 10,
+    color: 'white',
     textAlign: 'center',
-    borderColor: 'black',
+    borderColor: 'white',
     borderWidth: 3,
     borderRadius: 90,
+    borderStyle: 'dashed',
     padding: 10
   },
   gameOver: {
@@ -130,4 +136,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 10,
   },
+  dashedStyle: {
+    padding: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: 'white'
+  },
+  dashedStyleText: {
+    color: 'white',
+    fontFamily: 'monospace'
+  }
 });

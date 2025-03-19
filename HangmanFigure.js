@@ -4,68 +4,69 @@ import { View, StyleSheet, Text } from "react-native";
 
 const HangmanFigureASCII = [
   `
-    +---+
-    |   |
-        |
-        |
-        |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |
+  |
+  |
+  |
+  |===============`,
   `
-    +---+
-    |   |
-    O   |
-        |
-        |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |
+  |
+  |
+  |===============`,
   `
-    +---+
-    |   |
-    O   |
-    |   |
-        |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |         |
+  |         |
+  |
+  |===============`,
   `
-    +---+
-    |   |
-    O   |
-   /|   |
-        |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |        /|
+  |         |
+  |
+  |===============`,
   `
-    +---+
-    |   |
-    O   |
-   /|\\  |
-        |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |        /|\\
+  |         |
+  |
+  |===============`,
   `
-    +---+
-    |   |
-    O   |
-   /|\\  |
-   /    |
-        |
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |        /|\\
+  |         |
+  |        /
+  |===============`,
   `
-    -----
-    |   ||
-    O   ||
-   /|\\  ||
-   / \\  ||
-        ||
-    =========
-  `,
+   _________
+  |/        |
+  |         O
+  |        /|\\
+  |         |
+  |        / \\
+  |===============`,
+  `
+   _________
+  |/        |
+  |       __O__
+  |        /|\\
+  |         |
+  |        / \\
+  |===============`
 ];
 
 const HangmanFigure = ({ errors }) => {
@@ -88,14 +89,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 20,
     borderWidth: 1,
-    borderRadius: 90
+    borderRadius: 90,
+    borderStyle: 'dashed',
+    borderColor: 'white'
   },
   asciiText: {
     fontFamily: "monospace",
     fontSize: 20,
-    color: "black",
+    color: "white",
     textAlign: "left",
-    lineHeight: 18,
+    lineHeight: 20,
   }
 });
 

@@ -38,20 +38,23 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   key: {
-    width: 40,
-    height: 40,
-    margin: 3,
+    width: 50,
+    height: 50,
+    margin: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#eee',
-    borderRadius: 5,
+    backgroundColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: 'white'
   },
   disabledKey: {
     backgroundColor: '#999',
   },
   keyText: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'monospace',
+    color : 'white'
   },
 });
 
