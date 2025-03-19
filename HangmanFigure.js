@@ -1,71 +1,71 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import Svg, { Text } from "react-native-svg";
+import { View, StyleSheet, Text } from "react-native";
+// o import do text estava vindo de "react-native-svg", por isso não estava apresentando
 
 const HangmanFigureASCII = [
-  [
-    "+---+",
-    "|   |",
-    "    |",
-    "    |",
-    "    |",
-    "    |",
-    "=========",
-  ],
-  [
-    "+---+",
-    "|   |",
-    "O   |",
-    "    |",
-    "    |",
-    "    |",
-    "=========",
-  ],
-  [
-    "+---+",
-    "|   |",
-    "O   |",
-    "|   |",
-    "    |",
-    "    |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|   |",
-    "     |",
-    "     |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|\\  |",
-    "     |",
-    "     |",
-    "=========",
-  ],
-  [
-    " +---+",
-    " |   |",
-    " O   |",
-    "/|\\  |",
-    "/    |",
-    "     |",
-    "=========",
-  ],
-  [
-    " -----",
-    " |   ||",
-    " O   ||",
-    "/|\\  ||",
-    "/ \\  ||",
-    "     ||",
-    "=========",
-  ],
+  `
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|   |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|\\  |
+        |
+        |
+    =========
+  `,
+  `
+    +---+
+    |   |
+    O   |
+   /|\\  |
+   /    |
+        |
+    =========
+  `,
+  `
+    -----
+    |   ||
+    O   ||
+   /|\\  ||
+   / \\  ||
+        ||
+    =========
+  `,
 ];
 
 const HangmanFigure = ({ errors }) => {
@@ -73,21 +73,9 @@ const HangmanFigure = ({ errors }) => {
 
   return (
     <View style={styles.container}>
-      <Svg width="50%" height="100%">
-        {asciiArt.map((line, index) => (
-          <Text
-            key={index}
-            x="50%"
-            y={20 + index * 20}
-            fontSize="20"
-            fill="black"
-            fontFamily="monospace"
-            textAnchor="middle"
-          >
-            {line}
-          </Text>
-        ))}
-      </Svg>
+      <Text style={styles.asciiText}>
+        {asciiArt}
+      </Text>
     </View>
   );
 };
@@ -102,6 +90,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 90
   },
+  asciiText: {
+    fontFamily: "monospace",
+    fontSize: 20,
+    color: "black",
+    textAlign: "left",
+    lineHeight: 18,
+  }
 });
 
 export default HangmanFigure;
